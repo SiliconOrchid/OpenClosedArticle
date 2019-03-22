@@ -13,7 +13,7 @@ class Program
 
         string input = regex.Replace(Console.ReadLine().ToLower(),"");
 
-        string output = starshipLogic.GetStarshipName(input);
+        string output = starshipLogic.GetStarshipNameAndClass(input);
 
         Console.WriteLine(output);
 

@@ -1,12 +1,20 @@
-﻿namespace OpenClosed.StarshipRules
+﻿using OpenClosed.Models;
+
+namespace OpenClosed.StarshipRules
 {
     public class ReliantRule : IStarshipRule
     {
-        public string GetShipName(string registryCode)
+        public StarshipRuleResponse GetShipName(string registryCode)
         {
             if (registryCode == "ncc1864")
-                return "USS Reliant (Miranda class)";
-            return null;
+                return new StarshipRuleResponse
+                {
+                    isMatchedShip = true,
+                    StarshipName = "USS Reliant",
+                    StarshipClass = "Miranda"
+                };
+
+            return new StarshipRuleResponse();
         }
     }
 }

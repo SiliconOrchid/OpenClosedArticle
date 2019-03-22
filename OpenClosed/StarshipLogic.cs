@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using OpenClosed.Models;
 using OpenClosed.StarshipRules;
 
 namespace OpenClosed
@@ -17,31 +18,27 @@ namespace OpenClosed
             };
         }
 
-        public string GetStarshipName(string registryCode)
+public string GetStarshipNameAndClass(string registryCode)
+{
+    foreach (var rule in _listStarshipRules)
+    {
+        StarshipRuleResponse response = rule.GetShipName(registryCode);
+
+        if (response.isMatchedShip)
         {
-            foreach (var rule in _listStarshipRules)
-            {
-                string response = rule.GetShipName(registryCode);
-
-                if (string.IsNullOrEmpty(response))
-                {
-                    continue;
-                }
-                else
-                {
-                    return response;
-                }
-            }
-
-            return "Registry not recognised";
+            return $"{response.StarshipName} ({response.StarshipClass} class)";
         }
+    }
+
+    return "Registry not recognised";
+}
     }
 
 
     // ------------ Original version of StarshipLogic class, prior to refactoring to support open/closed principle ----------------
     //public class StarshipLogic
     //{
-    //    public string GetStarshipName(string registryCode)
+    //    public string GetStarshipNameAndClass(string registryCode)
     //    {
     //        switch (registryCode)
     //        {

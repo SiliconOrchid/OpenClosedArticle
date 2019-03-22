@@ -1,12 +1,20 @@
-﻿namespace OpenClosed.StarshipRules
+﻿using OpenClosed.Models;
+
+namespace OpenClosed.StarshipRules
 {
     public class ExcelsiorRule : IStarshipRule
     {
-        public string GetShipName(string registryCode)
+        public StarshipRuleResponse GetShipName(string registryCode)
         {
             if (registryCode == "ncc2000")
-                return "USS Excelsior (Excelsior class)";
-            return null;
+                return new StarshipRuleResponse
+                {
+                    isMatchedShip = true,
+                    StarshipName = "USS Excelsior",
+                    StarshipClass = "Excelsior"
+                };
+
+            return new StarshipRuleResponse();
         }
     }
 }
