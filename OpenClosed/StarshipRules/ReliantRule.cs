@@ -4,7 +4,7 @@ namespace OpenClosed.StarshipRules
 {
     public class ReliantRule : IStarshipRule
     {
-        public StarshipRuleResponse GetShipName(string registryCode)
+        public StarshipRuleResponse GetShipDetails(string registryCode)
         {
             if (registryCode == "ncc1864")
                 return new StarshipRuleResponse

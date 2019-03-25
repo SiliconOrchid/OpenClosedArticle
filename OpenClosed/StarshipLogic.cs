@@ -22,7 +22,7 @@ public string GetStarshipNameAndClass(string registryCode)
 {
     foreach (var rule in _listStarshipRules)
     {
-        StarshipRuleResponse response = rule.GetShipName(registryCode);
+        StarshipRuleResponse response = rule.GetShipDetails(registryCode);
 
         if (response.isMatchedShip)
         {

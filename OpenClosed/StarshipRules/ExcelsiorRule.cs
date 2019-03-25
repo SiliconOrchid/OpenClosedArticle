@@ -4,7 +4,7 @@ namespace OpenClosed.StarshipRules
 {
     public class ExcelsiorRule : IStarshipRule
     {
-        public StarshipRuleResponse GetShipName(string registryCode)
+        public StarshipRuleResponse GetShipDetails(string registryCode)
         {
             if (registryCode == "ncc2000")
                 return new StarshipRuleResponse

@@ -4,6 +4,6 @@ namespace OpenClosed.StarshipRules
 {
     public interface IStarshipRule
     {
-        StarshipRuleResponse GetShipName(string registryCode);
+        StarshipRuleResponse GetShipDetails(string registryCode);
     }
 }
